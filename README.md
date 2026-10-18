@@ -11,7 +11,7 @@
 
 ---
 
-## ⚡ Key Highlights & Quantitative Evaluation
+##  Key Highlights & Quantitative Evaluation
 
 * **99.9% MTTR Compression**: Reduced simulated incident resolution latency from **45 minutes to <200ms**.
 * **100.0% Recall@1 Root Cause Isolation**: Evaluated across complex microservice outage distributions (cascading 504 timeouts, N+1 query loops, OOM memory leaks).
@@ -20,7 +20,7 @@
 
 ---
 
-## 🏛️ System Architecture
+##  System Architecture
 
 ```
                                     +--------------------------------------------------+
@@ -75,7 +75,7 @@
 
 ---
 
-## 🧪 Empirical Evaluation Benchmark
+##  Empirical Evaluation Benchmark
 
 SentinelOps includes an automated quantitative benchmark harness ([`backend/app/evals/benchmark.py`](backend/app/evals/benchmark.py)) and a live frontend evals console:
 
@@ -98,7 +98,7 @@ SentinelOps includes an automated quantitative benchmark harness ([`backend/app/
 
 ---
 
-## 🕹️ Quickstart Guide
+##  Quickstart Guide
 
 ### Option 1: Docker Compose (Recommended)
 ```bash
@@ -138,7 +138,7 @@ python -m app.evals.benchmark
 
 ---
 
-## 🛡️ Interview Defense Playbook (Technical Q&A)
+##  Interview Defense Playbook (Technical Q&A)
 
 ### Q1: "Why not just feed all logs into a 1M context window model?"
 > **Answer**: 
@@ -155,6 +155,3 @@ python -m app.evals.benchmark
 > 2. **Cryptographic Test Immutability**: The sandbox executes against pristine, immutable test fixtures. The agent cannot modify test assertions to force a false pass."*
 
 ---
-
-## 📜 License
-MIT License. Built for distributed systems, backend, and SRE resilience engineering.
