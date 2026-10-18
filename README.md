@@ -89,7 +89,7 @@ SentinelOps includes an automated quantitative benchmark harness ([`backend/app/
 
 ---
 
-## 🛠️ Interactive Features
+##  Interactive Features
 
 1. **Live Service Mesh Topology**: Interactive `@xyflow/react` directed graph visualizing real-time blast radius propagation, service status, and latency metrics.
 2. **Server-Sent Events (SSE) Reasoning Stream**: Transparent, real-time agent thought log showing hypothesis formation, tool execution, and adversarial skeptic refutations.
@@ -135,23 +135,3 @@ cd backend
 pytest tests/ -v
 python -m app.evals.benchmark
 ```
-
----
-
-##  Interview Defense Playbook (Technical Q&A)
-
-### Q1: "Why not just feed all logs into a 1M context window model?"
-> **Answer**: 
-> *"Two reasons: **Needle-in-a-haystack dilution** and **topological blindness**. In a real outage, 50,000 log lines produce overwhelming noise. More importantly, the service throwing errors (e.g. API Gateway 504) is almost always a downstream victim of connection starvation, not the root cause. Vector embeddings index the Gateway due to keyword frequency. SentinelOps uses a **Directed Acyclic Graph (DAG)** via NetworkX to traverse upstream dependencies to the true source of latency ($Z \ge 2.5\sigma$). Temporal GraphRAG understands causality; Vector embeddings only understand vocabulary."*
-
-### Q2: "Why use Python AST static analysis instead of LLM code review?"
-> **Answer**: 
-> *"LLMs have non-deterministic attention and hallucinate subtle syntax bugs. By compiling code into an Abstract Syntax Tree (`ast.parse`), we deterministically detect AST nodes like `ast.For` containing an `ast.Call` to an asynchronous database query without burning API tokens or risking false negatives. We only use the LLM to synthesize candidate batch queries, and then immediately pass them through the AST visitor to verify that the loop-query pattern was strictly eradicated."*
-
-### Q3: "What prevents the agent from hallucinating a fix that passes tests by deleting assertions?"
-> **Answer**: 
-> *"The Subprocess Sandbox implements **two layers of deterministic guardrails**:
-> 1. **AST Anti-Pattern Eradication**: The candidate patch is run through `CodeASTAnalyzer`. If the structural flaw (`N_PLUS_ONE_IO_IN_LOOP` or `UNBOUNDED_IN_MEMORY_CACHE`) still exists in the AST syntax tree, the patch is rejected immediately before test execution.
-> 2. **Cryptographic Test Immutability**: The sandbox executes against pristine, immutable test fixtures. The agent cannot modify test assertions to force a false pass."*
-
----
